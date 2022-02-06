@@ -2,9 +2,9 @@
 
 ## Installation
 
-In the project directory, you can run:
+In the project directory, you can run:<br/>
 
-#### `npm i simple-otp-input`
+###### npm i simple-otp-input
 
 ### Import
 
