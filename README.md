@@ -16,8 +16,6 @@ In the project directory, you can run:
         onChange={setOTP}
         value={otp}
         numInputs={6}
-        inputStyle={{ borderRadius: "25%", width: "50px", height: "50px", fontSize: "32px" }}
-        containerStyle={{ display: "flex", justifyContent: "center" }}
         seperator="-"
     />
 
@@ -26,6 +24,6 @@ In the project directory, you can run:
 onChange: onChange function return a value<br />
 value: input value<br />
 numInputs: Number of inputs <br />
-inputStyle: style for input field <br />
-containerStyle: style for container <br />
+inputStyle: style for input field eg: inputStyle={{ borderRadius: "25%", width: "50px", height: "50px", fontSize: "32px" }} <br />
+containerStyle: style for container eg: containerStyle={{ display: "flex", justifyContent: "center" }} <br />
 seperator: field seperator <br />
