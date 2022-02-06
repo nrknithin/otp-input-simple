@@ -31,22 +31,22 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 const OTPInput = _ref => {
   let {
-    onOTPChange = () => {},
-    otpValue,
+    onChange = () => {},
+    value,
     numInputs = 4,
     inputStyle = {},
     containerStyle = {},
-    seperator = "-"
+    seperator = "",
+    required = true
   } = _ref;
   const [inputArray, setInputArray] = (0, _react.useState)([]);
 
   const handleChange = e => {
     const {
       maxLength,
-      value,
       name
     } = e.target;
-    let inputValue = value;
+    let inputValue = e.target.value;
     const [fieldName, fieldIndex] = name.split("-");
     let pattern = /[0-9]/g;
 
@@ -62,7 +62,7 @@ const OTPInput = _ref => {
           }
         }
 
-        onOTPChange((otpValue === null || otpValue === void 0 ? void 0 : otpValue.toString().substring(0, fieldIndex - 1)) + inputValue + (otpValue === null || otpValue === void 0 ? void 0 : otpValue.toString().substring(fieldIndex, numInputs)));
+        onChange((value === null || value === void 0 ? void 0 : value.toString().substring(0, fieldIndex - 1)) + inputValue + (value === null || value === void 0 ? void 0 : value.toString().substring(fieldIndex, numInputs)));
       } else {
         e.target.value = "";
       }
@@ -75,19 +75,22 @@ const OTPInput = _ref => {
 
   const handleKeyPress = e => {
     const {
-      value,
       name
     } = e.target;
-    let inputValue = value;
+    let inputValue = e.target.value;
     const [fieldName, fieldIndex] = name.split("-");
 
     if (e.keyCode === 8) {
+      if (parseInt(fieldIndex) === numInputs) {
+        onChange(value === null || value === void 0 ? void 0 : value.toString().substring(0, numInputs - 1));
+      }
+
       if (inputValue === "") {
         // Get the previous input field
         const previousSibling = document.querySelector("input[name=".concat(fieldName, "-").concat(parseInt(fieldIndex, 10) - 1, "]")); // If found, focus the previous field
 
         if (previousSibling !== null) {
-          onOTPChange((otpValue === null || otpValue === void 0 ? void 0 : otpValue.toString().substring(0, fieldIndex - 1)) + inputValue + (otpValue === null || otpValue === void 0 ? void 0 : otpValue.toString().substring(fieldIndex, numInputs)));
+          onChange((value === null || value === void 0 ? void 0 : value.toString().substring(0, fieldIndex - 2)) + inputValue + (value === null || value === void 0 ? void 0 : value.toString().substring(fieldIndex, numInputs)));
           previousSibling.focus();
         }
       }
@@ -125,7 +128,8 @@ const OTPInput = _ref => {
     onKeyDown: handleKeyPress,
     onFocus: handleFocus,
     onChange: handleChange,
-    autoFocus: index === 0
+    autoFocus: index === 0,
+    required: required
   }), index < numInputs - 1 && /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, seperator))));
 };
 
