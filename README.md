@@ -4,11 +4,11 @@
 
 In the project directory, you can run:<br/>
 
-    npm i simple-otp-input
+    npm i otp-input-simple
 
 ### Import
 
-    import OTPInput from "simple-otp-input";
+    import OTPInput from "otp-input-simple";
 
 ### Example
 
