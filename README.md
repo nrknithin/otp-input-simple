@@ -4,9 +4,13 @@
 
 In the project directory, you can run:
 
-### `npm i simple-otp-input`
+#### `npm i simple-otp-input`
 
-## Example
+### Import
+
+    import OTPInput from "simple-otp-input";
+
+### Example
 
     <OTPInput
         onChange={setOTP}
@@ -19,9 +23,9 @@ In the project directory, you can run:
 
 ## Props
 
-onChange
-value
-numInputs
-inputStyle
-containerStyle
-seperator
+onChange: onChange function return a value<br />
+value: input value<br />
+numInputs: Number of inputs <br />
+inputStyle: style for input field <br />
+containerStyle: style for container <br />
+seperator: field seperator <br />
