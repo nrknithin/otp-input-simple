@@ -1,6 +1,6 @@
 {
   "name": "otp-input-simple",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Simple OTP Input",
   "author": "nrknithin",
   "keywords": [
@@ -18,6 +18,9 @@
     "README.md",
     "LICENSE"
   ],
+  "bugs": {
+    "url": "https://github.com/nrknithin/otp-input-simple/issues"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nrknithin/simple-otp-input.git"
